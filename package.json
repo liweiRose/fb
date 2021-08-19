@@ -1,0 +1,66 @@
+{
+  "name": "lerna-fb",
+  "version": "0.0.4",
+  "main": "index.js",
+  "author": "rose.li <roseliwei666@gmail.com>",
+  "description": "A project template based monorepo work lerna and yarn workspace",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "keywords": [
+    "lerna",
+    "scaffold"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/liweiRose/fb.git"
+  },
+  "scripts": {
+    "clean": "rm -rf ./node_modules && lerna clean",
+    "init": "lerna bootstrap",
+    "version": "lerna version",
+    "publish": "lerna publish from-git"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "packages/**/*.js": [
+      "eslint",
+      "prettier --write"
+    ],
+    "packages/**/*.ts?(x)": [
+      "eslint",
+      "prettier --write"
+    ]
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.6.1",
+    "@typescript-eslint/eslint-plugin": "^4.29.1",
+    "@typescript-eslint/parser": "^4.29.1",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "husky": "^7.0.1",
+    "lerna": "^4.0.0",
+    "lint-staged": "^11.1.2",
+    "prettier": "^2.3.2",
+    "typescript": "^4.3.5",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^24.9.0",
+    "jest": "^26.4.2",
+    "standard-version": "^9.0.0",
+    "ts-jest": "^25.2.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
